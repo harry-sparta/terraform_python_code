@@ -7,10 +7,10 @@
   # Name tags
 variable "name" {
   type = string
-  default = "eng48-harry-li-app"
+  default = "eng48-harry-li-python-code"
 }
   # AMI
 variable "ami_python" {
   type = string
-  default = "ami-0c796dc8f5acf4c08"
+  default = "ami-085c8df7c38a62d5f"
 }

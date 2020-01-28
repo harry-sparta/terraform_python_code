@@ -35,8 +35,8 @@ resource "aws_security_group" "app_security_group" {
 
   ingress {
     # TLS (change to whatever ports you need)
-    from_port   = 80
-    to_port     = 80
+    from_port   = 22
+    to_port     = 22
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -85,13 +85,10 @@ resource "aws_instance" "app_instance" {
   vpc_security_group_ids = [aws_security_group.app_security_group.id]
   instance_type  = "t2.micro"
   associate_public_ip_address = true
-  user_data = data.template_file.app_init.rendered     # Telling the instance to be aware of data may be coming from the specificed template file
+  # user_data = data.template_file.app_init.rendered     # Telling the instance to be aware of data may be coming from the specificed template file
   tags  = {
     Name = "${var.name} - instance of app"
     }
 }
 
 # Send template shell file
-data "template_file" "app_init" {
-  template = "${file("./scripts/init_script.sh.tpl")}"
-}
