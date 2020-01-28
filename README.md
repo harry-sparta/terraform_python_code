@@ -1,3 +1,3 @@
 # Terraform - python code
 
-Launch onto AWS EC2
+Launch ready AMI with python code on to AWS EC2 instance using terraform.
